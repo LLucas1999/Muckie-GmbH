@@ -12,14 +12,14 @@ import { CommonModule } from '@angular/common';
 })
 export class ProduktListeComponent {
   produkte = signal<Produkt[]>([
-    {id:1, name:'LED Display Blau', short_description: 'kleiner, blauer, Display', price:7.99},
-    {id:2, name:'Drucktaster LED Blau', short_description: 'blauer Drucktaster', price:6.99},
-    {id:3, name:'Drucktaster LED Gelb', short_description: 'gelber Drucktaster', price:6.99},
-    {id:3, name:'Drucktaster LED Gelb', short_description: 'gelber Drucktaster', price:6.99},
-    {id:3, name:'Drucktaster LED Gelb', short_description: 'gelber Drucktaster', price:6.99},
-    {id:3, name:'Drucktaster LED Gelb', short_description: 'gelber Drucktaster', price:6.99},
+    {id:1, name:'LED Display Blau', short_description: 'kleiner, blauer, Display',description:'', price:7.99,stock:0},
+    {id:2, name:'Drucktaster LED Blau', short_description: 'blauer Drucktaster',description:'', price:6.99,stock:0},
+    {id:3, name:'Drucktaster LED Gelb', short_description: 'gelber Drucktaster',description:'', price:6.99,stock:0},
+    {id:3, name:'Drucktaster LED Gelb', short_description: 'gelber Drucktaster',description:'', price:6.99,stock:0},
+    {id:3, name:'Drucktaster LED Gelb', short_description: 'gelber Drucktaster',description:'', price:6.99,stock:0},
+    {id:3, name:'Drucktaster LED Gelb', short_description: 'gelber Drucktaster',description:'', price:6.99,stock:0},
 
-    
+
   ])
 
 }
