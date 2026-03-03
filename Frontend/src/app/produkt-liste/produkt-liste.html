@@ -1,0 +1,36 @@
+<div class="Products_container">
+    <h2 class="text-center mb-4">Unsere Produkte</h2>
+   <div class="direction">
+        <div class="row">
+        @for (p of produkte(); track p.id) {
+        <div class="col-md-4 mb-4">
+            
+            <div class="card shadow-sm" style="width: 18rem;">
+            <img src="assets/pinguin-placeholder.jpg" class="card-img-top" alt="Bild von {{ p.name }}">
+            
+            <div class="card-body">
+                <h5 class="card-title">{{ p.name }}</h5>
+                
+                <p class="card-text">
+                {{ p.short_description }}
+                </p>
+                
+                <p class="fw-bold text-primary">
+                {{ p.price| currency:'EUR' }}
+                </p>
+
+                <a [routerLink]="['/produkt', p.id]" class="btn btn-primary">
+                Details ansehen
+                </a>
+            </div>
+        </div>
+    
+        
+
+    </div>
+    } @empty {
+      <p class="text-center">Keine Pinguin-Delikatessen im Lager gefunden.</p>
+    }
+  </div>
+
+</div>

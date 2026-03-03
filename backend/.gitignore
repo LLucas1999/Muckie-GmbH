@@ -1,0 +1,12 @@
+# Python Müll
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtuelle Umgebung (Nie hochladen!)
+venv/
+env/
+
+
+# VSCode Einstellungen
+.vscode/

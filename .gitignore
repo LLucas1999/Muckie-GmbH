@@ -1,0 +1,14 @@
+# --- DJANGO BACKEND ---
+backend/venv/
+backend/.venv/
+backend/__pycache__/
+backend/*/__pycache__/
+backend/*.sqlite3
+*.py[cod]
+
+# --- ANGULAR FRONTEND ---
+Frontend/node_modules/
+Frontend/dist/
+Frontend/.angular/
+Frontend/.vscode/
+.DS_Store
