@@ -1,6 +1,8 @@
-import { Component, OnInit,Input,signal } from '@angular/core';
+import { Component, OnInit,Input,inject,signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Produkt } from '../core/models/produkt.model';
+import { ProduktServices } from '../services';
+
 
 @Component({
   selector: 'app-produkt-detail',
@@ -13,19 +15,20 @@ export class ProduktDetailComponent {
   
   @Input() id?: string; 
 
-  
+  private produktService = inject(ProduktServices);
   produkt = signal<Produkt | undefined>(undefined);
 
-  constructor() {
-    
-    this.produkt.set({
-      id: 1,
-      name: 'Test Produkt',
-      short_description: 'Ein kleiner Test',
-      description: 'Ausführliche Beschreibung',
-      price: 9.99,
-      stock: 42
+ ngOnInit() {
+  if (this.id) {
+    this.produktService.getById(Number(this.id)).subscribe({
+      next: (data) => {
+        
+        this.produkt.set(data); 
+      },
+      error: (err) => console.error("Verbindung zum Backend fehlgeschlagen", err)
     });
   }
 }
+  
+  }
 

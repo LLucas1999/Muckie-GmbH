@@ -1,4 +1,5 @@
-import { Component, signal } from '@angular/core';
+import { Component, OnInit, inject, signal } from '@angular/core';
+import { ProduktServices } from '../services';
 import { Produkt } from '../core/models/produkt.model';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -11,15 +12,13 @@ import { CommonModule } from '@angular/common';
   styleUrl: './produkt-liste.css',
 })
 export class ProduktListeComponent {
-  produkte = signal<Produkt[]>([
-    {id:1, name:'LED Display Blau', short_description: 'kleiner, blauer, Display',description:'', price:7.99,stock:0},
-    {id:2, name:'Drucktaster LED Blau', short_description: 'blauer Drucktaster',description:'', price:6.99,stock:0},
-    {id:3, name:'Drucktaster LED Gelb', short_description: 'gelber Drucktaster',description:'', price:6.99,stock:0},
-    {id:3, name:'Drucktaster LED Gelb', short_description: 'gelber Drucktaster',description:'', price:6.99,stock:0},
-    {id:3, name:'Drucktaster LED Gelb', short_description: 'gelber Drucktaster',description:'', price:6.99,stock:0},
-    {id:3, name:'Drucktaster LED Gelb', short_description: 'gelber Drucktaster',description:'', price:6.99,stock:0},
-
-
-  ])
-
+  private productService = inject(ProduktServices);
+  produkte = signal<Produkt[]>([])
+  
+  ngOnInit(){
+    this.productService.getAll().subscribe({
+      next: (data) => this.produkte.set(data),
+      error: (err) => console.error('Backend nicht erreichbar', err)
+    })
+  }
 }
