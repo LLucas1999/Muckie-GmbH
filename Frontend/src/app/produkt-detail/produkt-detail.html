@@ -1,5 +1,5 @@
 <div class="container mt-5">
-  @if (produkt()) {
+  @if ( produkt()) {
     <div class="row">
       <div class="col-md-6">
         <img src="./images/Platzhalter_IMG.png" class="img-fluid rounded shadow" alt="Produktbild">
@@ -7,10 +7,10 @@
       
       <div class="col-md-6">
         <h1>{{ produkt()?.name }} (ID: {{ id }})</h1>
-        <p class="lead">{{ produkt()?.description }}</p>
+        <p class="lead">{{ produkt()?.product_description }}</p>
         
         <div class="alert alert-info">
-          <strong>Lagerbestand:</strong> {{ produkt()?.stock }} Stück vorhanden
+        <strong>Lagerbestand:</strong> <p>{{ produkt()?.stock?.quantity }} Stück vorhanden</p>
         </div>
         
         <h3 class="text-primary mt-4">{{ produkt()?.price | currency:'EUR' }}</h3>
